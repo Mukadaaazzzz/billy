@@ -1,0 +1,13 @@
+/* Keyframe for Fade Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+img {
+  animation: fadeIn 2s ease-in-out;
+}
