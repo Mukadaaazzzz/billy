@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Box, Typography, IconButton } from '@mui/material';
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { ChevronLeft, ChevronRight, Music, Headphones } from 'lucide-react';
 
 const Hero = () => {
   const images = [
@@ -16,7 +14,7 @@ const Hero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       handleNext();
-    }, 5000);
+    }, 7000); // Increased duration for a slower, more impactful transition
     return () => clearInterval(interval);
   }, [currentIndex]);
 
@@ -33,192 +31,106 @@ const Hero = () => {
   };
 
   return (
-    <Box
-      sx={{
-        position: 'relative',
-        height: '100vh',
-        width: '100%',
-        overflow: 'hidden',
-        backgroundColor: '#000',
-      }}
-    >
+    <div className="relative h-screen w-full overflow-hidden">
+      {/* Background Image Carousel */}
       <AnimatePresence initial={false}>
         <motion.img
           key={currentIndex}
           src={images[currentIndex]}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.6 }}
-          style={{
-            position: 'absolute',
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-          }}
+          alt={`Hero ${currentIndex + 1}`}
+          className="absolute inset-0 w-full h-full object-cover"
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.9 }}
+          transition={{ duration: 1.5 }}
         />
       </AnimatePresence>
 
       {/* Overlay and Content */}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundColor: 'rgba(0, 0, 0, 0.6)',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          color: 'white',
-          textAlign: 'center',
-          padding: { xs: '1rem', md: '3rem' },
-        }}
-      >
-        {/* Hero Title */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/30 flex flex-col justify-center items-center text-white p-4">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-center"
         >
-          <Typography
-            variant="h1"
-            sx={{
-              fontWeight: 'bold',
-              fontSize: { xs: '3rem', sm: '4rem', md: '5rem' },
-              textShadow: '3px 3px 15px rgba(0, 0, 0, 0.8)',
-              fontFamily: "'Playfair Display', serif",
-            }}
-          >
+          <h1 className="text-7xl font-bold mb-4 text-center bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 to-red-500">
             Billy Brooks
-          </Typography>
+          </h1>
+          <h2 className="text-3xl mb-6 text-center font-light tracking-wide">
+             Rock & Gospel Artist
+          </h2>
         </motion.div>
 
-        {/* Subtitle */}
+        <motion.p
+          className="text-xl mb-8 max-w-2xl text-center leading-relaxed"
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
+          Experience the soul-stirring blend of country rock and gospel that has touched hearts across the nation. 
+          Join Billy on a musical journey of faith, hope, and inspiration.
+        </motion.p>
+
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.5 }}
+          className="flex space-x-4"
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <Typography
-            variant="h2"
-            sx={{
-              fontWeight: '300',
-              fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
-              marginTop: { xs: '1.5rem', md: '2.5rem' },
-              fontFamily: "'Montserrat', sans-serif",
-              textShadow: '2px 2px 10px rgba(0, 0, 0, 0.8)',
-            }}
+          <motion.button
+            className="bg-white text-black py-3 px-6 rounded-full font-bold text-lg flex items-center hover:bg-opacity-90 transition duration-300"
+            whileHover={{ scale: 1.05, boxShadow: "0px 0px 8px rgb(255,255,255)" }}
+            whileTap={{ scale: 0.95 }}
           >
-            Inspiring Gospel Music Artist
-          </Typography>
-        </motion.div>
-
-        {/* Description */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.7 }}
-        >
-          <Typography
-            variant="body1"
-            sx={{
-              maxWidth: '700px',
-              fontSize: { xs: '1rem', md: '1.2rem' },
-              marginTop: { xs: '1rem', md: '1.5rem' },
-              lineHeight: 1.6,
-              fontFamily: "'Montserrat', sans-serif",
-              textShadow: '1px 1px 5px rgba(0, 0, 0, 0.7)',
-            }}
+            <Music className="mr-2" />
+            Explore Music
+          </motion.button>
+          <motion.button
+            className="bg-transparent border-2 border-white text-white py-3 px-6 rounded-full font-bold text-lg flex items-center hover:bg-white hover:text-black transition duration-300"
+            whileHover={{ scale: 1.05, boxShadow: "0px 0px 8px rgb(255,255,255)" }}
+            whileTap={{ scale: 0.95 }}
           >
-            Billy Brooks uses the power of music to uplift and transform lives.
-            Join him on this spiritual journey of love and praise.
-          </Typography>
+            <Headphones className="mr-2" />
+            Latest Album
+          </motion.button>
         </motion.div>
-
-        {/* Call to Action Button */}
-        <motion.button
-          whileHover={{ scale: 1.08 }}
-          whileTap={{ scale: 0.96 }}
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.9 }}
-          style={{
-            padding: '12px 36px',
-            fontSize: '1.2rem',
-            fontWeight: 'bold',
-            color: '#fff',
-            backgroundColor: '#e91e63',
-            border: 'none',
-            borderRadius: '30px',
-            cursor: 'pointer',
-            boxShadow: '0 6px 12px rgba(0, 0, 0, 0.2)',
-            fontFamily: "'Montserrat', sans-serif",
-            marginTop: '2rem',
-          }}
-        >
-          Explore the Music
-        </motion.button>
-      </Box>
+      </div>
 
       {/* Navigation Arrows */}
-      <IconButton
+      <motion.button
         onClick={handlePrev}
-        sx={{
-          position: 'absolute',
-          top: '40%',
-          left: '20px',
-          transform: 'translateY(-50%)',
-          color: 'white',
-          backgroundColor: 'rgba(0, 0, 0, 0.6)',
-          '&:hover': { backgroundColor: 'rgba(0, 0, 0, 0.8)' },
-        }}
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 p-2 rounded-full hover:bg-white/40 transition duration-300"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
       >
-        <ArrowBackIosNewIcon />
-      </IconButton>
+        <ChevronLeft className="text-white" size={24} />
+      </motion.button>
 
-      <IconButton
+      <motion.button
         onClick={handleNext}
-        sx={{
-          position: 'absolute',
-          top: '40%',
-          right: '20px',
-          transform: 'translateY(-50%)',
-          color: 'white',
-          backgroundColor: 'rgba(0, 0, 0, 0.6)',
-          '&:hover': { backgroundColor: 'rgba(0, 0, 0, 0.8)' },
-        }}
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 p-2 rounded-full hover:bg-white/40 transition duration-300"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
       >
-        <ArrowForwardIosIcon />
-      </IconButton>
+        <ChevronRight className="text-white" size={24} />
+      </motion.button>
 
       {/* Dots for Navigation */}
-      <Box
-        sx={{
-          position: 'absolute',
-          bottom: '30px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          display: 'flex',
-          gap: '8px',
-        }}
-      >
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
         {images.map((_, index) => (
-          <Box
+          <motion.button
             key={index}
-            sx={{
-              width: '12px',
-              height: '12px',
-              borderRadius: '50%',
-              backgroundColor: index === currentIndex ? '#e91e63' : 'rgba(255, 255, 255, 0.6)',
-              transition: 'background-color 0.3s ease',
-            }}
+            className={`w-3 h-3 rounded-full ${
+              index === currentIndex ? 'bg-white' : 'bg-white/50'
+            }`}
+            onClick={() => setCurrentIndex(index)}
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.8 }}
           />
         ))}
-      </Box>
-    </Box>
+      </div>
+    </div>
   );
 };
 

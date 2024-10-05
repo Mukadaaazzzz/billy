@@ -5,8 +5,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'serif': ['Playfair Display', 'serif'],
-        'sans': ['Montserrat', 'sans-serif'],
+        'serif': ['Oswald', 'serif'],
+        'sans': ['Oswald', 'sans-serif'],
       },
     },
   },

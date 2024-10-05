@@ -56,7 +56,7 @@ const TourSection = () => {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-7 text-center font-serif" >
-            The Gospel Journey Continues
+            Be Part Of The Journey
           </h2>
         </motion.div>
 
@@ -66,7 +66,7 @@ const TourSection = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <p className="text-xl text-gray-300 mb-10 text-center max-w-3xl mx-auto font-sans">
-            Prepare your hearts for an unforgettable experience. Billy Brooks is hitting the road to spread the message of hope and love through soul-stirring gospel music.
+            Prepare your hearts for an unforgettable experience. Billy Brooks is hitting the road to spread the message of hope and love through soul-stirring music.
           </p>
         </motion.div>
 
