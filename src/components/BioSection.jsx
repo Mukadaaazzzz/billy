@@ -45,7 +45,7 @@ const BioSection = () => {
               I've spent most of my career in aviation and aerospace. When I raised my family, I put music aside for some time...
             </p>
             <p className="text-lg mb-4">
-              Then in October 2023, I was diagnosed with an aggressive form of prostate cancer. My immediate thought… damn, really? Isn't that the cat's meow?...
+              Then in October 2022, I was diagnosed with an aggressive form of prostate cancer. My immediate thought… damn, really? Isn't that the cat's meow?...
             </p>
             <p className="text-lg mb-4">
               Hopefully, we will return to God, pray to heal our wounds and let the restoration to sanity begin. Carpe Diem et vade in pace.
@@ -157,7 +157,7 @@ const BioSection = () => {
           <a href="#" target="_blank" rel="noopener noreferrer">
             <FaSpotify className="text-3xl hover:text-gray-400 transition duration-300" />
           </a>
-          <a href="#" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.youtube.com/@BBrooks1964" target="_blank" rel="noopener noreferrer">
             <FaYoutube className="text-3xl hover:text-gray-400 transition duration-300" />
           </a>
           <a href="#" target="_blank" rel="noopener noreferrer">
